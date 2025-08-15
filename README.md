@@ -34,6 +34,7 @@ pip install Flask
 python c2.py
 ```
 Access the web interface: http://0.0.0.0:8080
+
 Client (Windows)
 ```
 go build -o client.exe windows.go
