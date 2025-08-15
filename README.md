@@ -41,7 +41,7 @@ go build -o client.exe windows.go
 Set SERVER_BASE in **your Agent** to your server URL.
 Usage
 
-   - Start the server.
+   - Start the server (i used deepnote as public server after enable Incoming connections 8080).
    - Run the client on target machine(s).
    - Send commands via the web interface.
    - View live outputs; use exit or quit to stop the client.
