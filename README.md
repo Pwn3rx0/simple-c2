@@ -1,6 +1,6 @@
 # SIMPLE C2
 
-Lightweight Command & Control (C2) setup with a **Flask server** and **Windows Go client** for educational and penetration testing purposes.
+Lightweight Command & Control (C2) setup with a **Flask server** and **Windows & linux Go agent** for educational and penetration testing purposes.
 
 > **Warning:** Use only on systems you own or have explicit permission to test.
 
