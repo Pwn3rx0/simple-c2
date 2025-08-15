@@ -38,7 +38,7 @@ Client (Windows)
 ```
 go build -o client.exe windows.go
 ```
-Set SERVER_BASE in main.go to your server URL.
+Set SERVER_BASE in **your Agent** to your server URL.
 Usage
 
    - Start the server.
