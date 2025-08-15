@@ -25,7 +25,7 @@ Lightweight Command & Control (C2) setup with a **Flask server** and **Windows &
 
 ## Setup
 
-### Server
+### Server:
 
 ```bash
 git clone https://github.com/Pwn3rx0/simple-c2.git
@@ -35,7 +35,7 @@ python c2.py
 ```
 Access the web interface: http://0.0.0.0:8080
 
-### Agent
+### Agent:
 ```
 go build -o client.exe windows.go
 ```
