@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SIMPLE C2</title>
+<style>
+body { font-family: monospace; background: #1e1e1e; color: #f0f0f0; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+h1 { color: #4caf70; margin-bottom: 20px; }
+form { display: flex; gap: 10px; margin-bottom: 20px; width: 100%; max-width: 600px; }
+input[type=text], select { flex: 1; padding: 10px; font-size: 16px; border-radius: 5px; border: none; background: #2e2e2e; color: #f0f0f0; }
+input[type=submit] { padding: 10px 20px; font-size: 16px; border-radius: 5px; background: #4caf70; border: none; color: white; cursor: pointer; }
+#output { width: 100%; max-width: 800px; background: #121212; padding: 15px; border-radius: 5px; white-space: pre-wrap; border: 1px solid #333; margin-top: 10px; overflow-y: auto; }
+</style>
+<script>
+function sendCommand(event){
+    event.preventDefault();
+    let form = event.target;
+    let cmd = form.command.value.trim();
+    let target = form.client_id.value;
+    if (!cmd) return;
+    fetch("/send_command", {method:"POST", body: new FormData(form)});
+    form.command.value = "";
+}
+
+function pollOutput(){
+    let target = document.getElementById("client_select").value;
+    fetch("/get_output?client_id=" + target)
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById("output").innerText = data.output || "No output yet";
+        })
+        .finally(() => { setTimeout(pollOutput, 1000); });
+}
+
+function changeClient(){ pollOutput(); }
+window.onload = pollOutput;
+</script>
+</head>
+<body>
+<h1>C2 server - Andrew Mamdouh</h1>
+<form onsubmit="sendCommand(event)">
+    <select id="client_select" name="client_id" onchange="changeClient()">
+        <option value="ALL">All Clients</option>
+        {% for cid in clients %}
+            <option value="{{cid}}">{{cid}}</option>
+        {% endfor %}
+    </select>
+    <input type="text" name="command" placeholder="Enter command..." required autofocus>
+    <input type="submit" value="Send">
+</form>
+<div id="output"></div>
+</body>
+</html>
