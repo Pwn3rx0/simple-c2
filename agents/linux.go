@@ -11,7 +11,7 @@ import (
 	"time"
 )
 
-const SERVER_BASE = "https://d36658cf-4a52-46ab-8212-df0a08f93498.deepnoteproject.com"
+const SERVER_BASE = ""
 
 func main() {
 	rand.Seed(time.Now().UnixNano())
