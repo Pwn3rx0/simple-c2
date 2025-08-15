@@ -28,15 +28,15 @@ Lightweight Command & Control (C2) setup with a **Flask server** and **Windows &
 ### Server
 
 ```bash
-git clone <repo>
-cd flask-c2
+git clone https://github.com/Pwn3rx0/simple-c2.git
+cd simple-c2
 pip install Flask
-python server.py
+python c2.py
 ```
 Access the web interface: http://0.0.0.0:8080
 Client (Windows)
 ```
-go build -o client.exe main.go
+go build -o client.exe windows.go
 ```
 Set SERVER_BASE in main.go to your server URL.
 Usage
